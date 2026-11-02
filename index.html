@@ -17,5 +17,23 @@
       <section class="bookstore-grid" aria-label="책을 만날 수 있는 서점 목록"></section>
       <noscript><p class="introduction">서점 목록을 보려면 JavaScript를 활성화해 주세요.</p></noscript>
     </main>
+    <dialog class="store-dialog" aria-labelledby="detail-name" aria-describedby="detail-region">
+      <header class="detail-header">
+        <h2 id="detail-name"></h2>
+        <p id="detail-region"></p>
+        <button class="detail-close" type="button" aria-label="상세 팝업 닫기"></button>
+      </header>
+      <section class="detail-gallery" aria-label="서점 사진">
+        <img class="detail-photo" alt="">
+        <button class="gallery-arrow previous" type="button" aria-label="이전 사진"></button>
+        <button class="gallery-arrow next" type="button" aria-label="다음 사진"></button>
+        <div class="gallery-dots" role="group" aria-label="사진 선택"></div>
+        <p class="sr-only gallery-status" aria-live="polite" aria-atomic="true"></p>
+      </section>
+      <footer class="detail-links">
+        <a class="instagram-link" target="_blank" rel="noopener noreferrer">인스타그램<span aria-hidden="true">&gt;</span></a>
+        <a class="map-link" target="_blank" rel="noopener noreferrer">네이버지도<span aria-hidden="true">&gt;</span></a>
+      </footer>
+    </dialog>
   </body>
 </html>
