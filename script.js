@@ -1,9 +1,9 @@
-// 서점 정보는 임시 데이터이며, 제공된 사진 한 장을 네 카드에 공통 사용합니다.
+// 서점 정보는 임시 데이터입니다. 메인은 기존 사진, 팝업은 제공된 가로·세로 사진을 사용합니다.
 const bookstores = [
-  { name: '부비프', region: '서울 성북구', position: '30% center', photos: ['assets/bookstore.png', 'assets/bookstore.png'], instagramUrl: null, mapUrl: null },
-  { name: '커넥티드 북스토어', region: '부산 동래구', position: 'center', photos: ['assets/bookstore.png', 'assets/bookstore.png', 'assets/bookstore.png'], instagramUrl: null, mapUrl: null },
-  { name: '별책부록', region: '서울 용산구', position: '75% center', detailName: '별책부록 — 책과 이야기가 머무르는 작은 서점', photos: ['assets/bookstore.png', 'assets/bookstore.png', 'assets/bookstore.png', 'assets/bookstore.png'], instagramUrl: null, mapUrl: null },
-  { name: '소테레오북스', region: '부산 동래구', position: '20% center', photos: ['assets/bookstore.png'], instagramUrl: null, mapUrl: null },
+  { name: '부비프', region: '서울 성북구', position: '30% center', photos: ['assets/popup-landscape.png', 'assets/popup-portrait.png'], instagramUrl: null, mapUrl: null },
+  { name: '커넥티드 북스토어', region: '부산 동래구', position: 'center', photos: ['assets/popup-landscape.png', 'assets/popup-portrait.png'], instagramUrl: null, mapUrl: null },
+  { name: '별책부록', region: '서울 용산구', position: '75% center', detailName: '별책부록 — 책과 이야기가 머무르는 작은 서점', photos: ['assets/popup-landscape.png', 'assets/popup-portrait.png'], instagramUrl: null, mapUrl: null },
+  { name: '소테레오북스', region: '부산 동래구', position: '20% center', photos: ['assets/popup-landscape.png', 'assets/popup-portrait.png'], instagramUrl: null, mapUrl: null },
 ];
 
 const grid = document.querySelector('.bookstore-grid');
