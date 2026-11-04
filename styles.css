@@ -198,11 +198,14 @@ button, a { font-family: inherit; color: inherit; }
 }
 #detail-region {
   margin: 0;
-  max-width: 84px;
+  max-width: min(160px, 40vw);
   font-size: 12px;
   line-height: 25px;
   text-align: right;
   word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .detail-close {
   position: absolute;
@@ -239,7 +242,7 @@ button, a { font-family: inherit; color: inherit; }
   height: auto;
   max-height: var(--photo-max-height, 60dvh);
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 50%;
 }
 .gallery-arrow {
   position: absolute;
@@ -346,7 +349,7 @@ button, a { font-family: inherit; color: inherit; }
     grid-template-columns: repeat(4, minmax(0, 1fr));
     max-width: 1450px;
   }
-  .bookstore-name { font-size: 16pt; }
+  .bookstore-name { font-size: 16px; }
   .mobile-name-break { display: none; }
   .store-dialog {
     inset: 70px 0 auto;
