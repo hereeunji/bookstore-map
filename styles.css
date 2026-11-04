@@ -31,7 +31,6 @@ main { display: flow-root; }
   align-items: center;
   justify-content: center;
   padding: 24px 16px;
-  border-bottom: 1px solid #D9CFB8;
 }
 
 .logo {
@@ -93,6 +92,7 @@ main { display: flow-root; }
 }
 
 .search-empty {
+  color: #d1c8ba;
   margin: 20px;
   text-align: center;
   font-size: 13px;

@@ -50,7 +50,7 @@ function filterBookstores() {
     if (visible) matches++;
   }
   searchEmpty.hidden = matches > 0;
-  searchEmpty.textContent = matches ? '' : '검색 결과가 없습니다.';
+  searchEmpty.textContent = matches ? '' : '검색 결과가 없습니다';
 }
 
 searchInput.addEventListener('input', filterBookstores);
