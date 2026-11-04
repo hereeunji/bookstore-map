@@ -22,6 +22,11 @@ for (const store of bookstores) {
   const name = document.createElement('h2');
   name.className = 'bookstore-name';
   name.textContent = store.name;
+  if (store.name.replace(/\s/g, '') === '커넥티드북스토어') {
+    const lineBreak = document.createElement('br');
+    lineBreak.className = 'mobile-name-break';
+    name.replaceChildren('커넥티드', lineBreak, ' 북스토어');
+  }
   const region = document.createElement('p');
   region.className = 'bookstore-region';
   region.textContent = store.region;
@@ -75,10 +80,18 @@ let imageVersion = 0;
 
 function resizeGallery() {
   if (!dialog.open) return;
+  const desktop = window.matchMedia('(min-width: 1024px)').matches;
+  if (desktop) {
+    const portrait = detailPhoto.naturalWidth > 0 && detailPhoto.naturalWidth < detailPhoto.naturalHeight;
+    dialog.style.width = `${Math.min(portrait ? 520 : 720, document.documentElement.clientWidth - 40)}px`;
+  } else {
+    dialog.style.removeProperty('width');
+  }
   const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
   const headerHeight = dialog.querySelector('.detail-header').getBoundingClientRect().height;
   const footerHeight = dialog.querySelector('.detail-links').getBoundingClientRect().height;
-  dialog.style.setProperty('--photo-max-height', `${Math.max(0, viewportHeight - 40 - headerHeight - footerHeight)}px`);
+  const verticalMargins = desktop ? 140 : 40;
+  dialog.style.setProperty('--photo-max-height', `${Math.max(0, viewportHeight - verticalMargins - headerHeight - footerHeight)}px`);
 }
 
 function setExternalLink(selector, url) {
@@ -133,7 +146,8 @@ function showPhoto(index) {
 }
 
 function openStore(store, trigger) {
-  currentStore = { ...store, photos: Array.isArray(store.photos) ? store.photos.filter(path => typeof path === 'string' && path.trim()).slice(0, 4) : [] };
+  const photos = [...(Array.isArray(store.photos) ? store.photos : []), store.cover];
+  currentStore = { ...store, photos: [...new Set(photos.filter(path => typeof path === 'string' && path.trim()))] };
   opener = trigger;
   savedScroll = window.scrollY;
   previousBodyStyle = document.body.getAttribute('style');
