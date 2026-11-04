@@ -15,7 +15,14 @@
     </header>
     <main>
       <p class="introduction">책 《엄마가 좋은 기분이에요》를 만날 수 있는 공간입니다</p>
-      <section class="bookstore-grid" aria-label="책을 만날 수 있는 서점 목록"></section>
+      <form class="store-search" role="search" aria-label="서점 검색">
+        <input id="store-search" type="search" placeholder="Search" aria-label="서점명 또는 지역 검색" aria-controls="bookstore-grid" autocomplete="off">
+        <button type="submit" aria-label="검색">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>
+        </button>
+      </form>
+      <section id="bookstore-grid" class="bookstore-grid" aria-label="책을 만날 수 있는 서점 목록"></section>
+      <p class="search-empty" role="status" hidden></p>
       <noscript><p class="introduction">서점 목록을 보려면 JavaScript를 활성화해 주세요.</p></noscript>
     </main>
     <dialog class="store-dialog" aria-labelledby="detail-name" aria-describedby="detail-region">

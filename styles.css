@@ -57,6 +57,47 @@ main { display: flow-root; }
   word-break: keep-all;
 }
 
+.store-search {
+  display: flex;
+  width: 190px;
+  max-width: calc(100% - 40px);
+  height: 32px;
+  margin: 0 auto 20px;
+  border: 1px solid #D9CFB8;
+  border-radius: 0;
+  background: #FAF7F0;
+}
+
+.store-search input {
+  min-width: 0;
+  width: 100%;
+  padding: 0 0 0 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #000;
+  font: inherit;
+  font-size: 13px;
+  appearance: none;
+}
+
+.store-search input::placeholder { color: #D9CFB8; opacity: 1; }
+.store-search button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search-empty {
+  margin: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+
 .bookstore-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

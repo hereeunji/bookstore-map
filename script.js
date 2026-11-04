@@ -1,4 +1,5 @@
 const grid = document.querySelector('.bookstore-grid');
+const searchEntries = [];
 
 for (const store of bookstores) {
   const card = document.createElement('article');
@@ -34,7 +35,30 @@ for (const store of bookstores) {
   trigger.addEventListener('click', () => openStore(store, trigger));
   card.append(trigger);
   grid.append(card);
+  searchEntries.push({ card, name: store.name.toLocaleLowerCase(), region: store.region.toLocaleLowerCase() });
 }
+
+const searchInput = document.querySelector('#store-search');
+const searchEmpty = document.querySelector('.search-empty');
+
+function filterBookstores() {
+  const query = searchInput.value.trim().toLocaleLowerCase();
+  let matches = 0;
+  for (const entry of searchEntries) {
+    const visible = entry.name.includes(query) || entry.region.includes(query);
+    entry.card.hidden = !visible;
+    if (visible) matches++;
+  }
+  searchEmpty.hidden = matches > 0;
+  searchEmpty.textContent = matches ? '' : '검색 결과가 없습니다.';
+}
+
+searchInput.addEventListener('input', filterBookstores);
+searchInput.addEventListener('search', filterBookstores);
+document.querySelector('.store-search').addEventListener('submit', event => {
+  event.preventDefault();
+  filterBookstores();
+});
 
 const dialog = document.querySelector('.store-dialog');
 const detailPhoto = document.querySelector('.detail-photo');
