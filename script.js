@@ -14,6 +14,7 @@ for (const store of bookstores) {
   // 서로 다른 서점의 실제 사진으로 오인하지 않도록 장식 이미지로 처리합니다.
   photo.alt = '';
   photo.decoding = 'async';
+  photo.loading = 'lazy';
   photo.style.objectPosition = store.position;
 
   const label = document.createElement('div');
@@ -139,7 +140,8 @@ function openStore(store, trigger) {
   Object.assign(document.body.style, { position: 'fixed', top: `-${savedScroll}px`, width: '100%', overflow: 'hidden' });
   dialog.querySelector('#detail-name').textContent = store.detailName || store.name;
   dialog.querySelector('#detail-region').textContent = store.region;
-  setExternalLink('.instagram-link', store.instagramUrl);
+  dialog.querySelector('.instagram-link').firstChild.textContent = store.instagramUrl || !store.websiteUrl ? '인스타그램' : '웹사이트';
+  setExternalLink('.instagram-link', store.instagramUrl || store.websiteUrl);
   setExternalLink('.map-link', store.naverMapUrl);
   dots.replaceChildren();
   const multiple = currentStore.photos.length > 1;
