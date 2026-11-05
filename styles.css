@@ -295,6 +295,7 @@ button, a { font-family: inherit; color: inherit; }
 }
 .gallery-dot[aria-pressed="true"]::after { background: #000; }
 .detail-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); flex: none; }
+.detail-links:has(.map-link[hidden]) { grid-template-columns: 1fr; }
 .detail-links a {
   display: flex;
   justify-content: space-between;

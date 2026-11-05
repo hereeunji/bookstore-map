@@ -157,6 +157,7 @@ function openStore(store, trigger) {
   dialog.querySelector('.instagram-link').firstChild.textContent = store.instagramUrl || !store.websiteUrl ? '인스타그램' : '웹사이트';
   setExternalLink('.instagram-link', store.instagramUrl || store.websiteUrl);
   setExternalLink('.map-link', store.naverMapUrl);
+  dialog.querySelector('.map-link').hidden = !dialog.querySelector('.map-link').hasAttribute('href');
   dots.replaceChildren();
   const multiple = currentStore.photos.length > 1;
   dialog.querySelectorAll('.gallery-arrow').forEach(button => { button.hidden = !multiple; });
